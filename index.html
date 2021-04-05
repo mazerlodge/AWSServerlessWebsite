@@ -1,0 +1,40 @@
+<html>
+<script>
+
+function sendToLambda() {
+	var xhttp = new XMLHttpRequest(); 
+	var apiGatewayHost = "ENTER_API_HOST_HERE";
+	var apiGatewayURL = "https://" + apiGatewayHost + ".execute-api.us-east-1.amazonaws.com/ServerlessWebsiteLambda";
+
+	var eParam = document.getElementById("eVal").value;
+	var hParam = document.getElementById("hVal").value;
+	apiGatewayURL += "?eParam=" + eParam + "&hParam=" + hParam;
+	alert ("sending to " + apiGatewayURL);
+
+
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("outMsg").innerHTML = this.responseText;
+		}
+	};
+	
+	xhttp.open("GET", apiGatewayURL, true);
+	xhttp.send();
+
+}
+
+</script>
+<body>
+<div align="center">
+	<br /><br /><br /><br />
+	E Val: <input type="text" id="eVal"> <br />
+	H Val: <input type="text" id="hVal"> <br />
+	<br />
+	<button onclick="sendToLambda()">Send to Lambda</button><br />
+	<br />
+	Result: <span id="outMsg">Output message will appear here.</span>
+
+</div>
+</body>
+</html>
+

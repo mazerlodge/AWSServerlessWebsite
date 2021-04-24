@@ -3,11 +3,11 @@
 
 function sendToLambda() {
 	var xhttp = new XMLHttpRequest(); 
-	var apiGatewayHost = "ENTER_API_HOST_HERE";
+	var apiGatewayHost = document.getElementById("gatewayHost").value;
 	var apiGatewayURL = "https://" + apiGatewayHost + ".execute-api.us-east-1.amazonaws.com/ServerlessWebsiteLambda";
 
-	var eParam = document.getElementById("eVal").value;
-	var hParam = document.getElementById("hVal").value;
+	var eParam = encodeURIComponent(document.getElementById("eVal").value);
+	var hParam = encodeURIComponent(document.getElementById("hVal").value);
 	apiGatewayURL += "?eParam=" + eParam + "&hParam=" + hParam;
 	alert ("sending to " + apiGatewayURL);
 
@@ -27,6 +27,7 @@ function sendToLambda() {
 <body>
 <div align="center">
 	<br /><br /><br /><br />
+	Gateway Host: <input type="text" id="gatewayHost"> <br />
 	E Val: <input type="text" id="eVal"> <br />
 	H Val: <input type="text" id="hVal"> <br />
 	<br />

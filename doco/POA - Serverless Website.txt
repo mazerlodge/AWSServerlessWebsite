@@ -1,0 +1,25 @@
+POA - Serverless Website 
+
+	Goal - AWS Serverless based version of Kona Caps data tracker. 
+	
+	
+==== Activity Log - 202104 ====
+
+04/10
+	- Initial Version 
+	
+04/24 
+	- Added URL encoding to javascript on HTML page prior to sending values to API Gateway
+	- Added Gateway Host as input on HTML page, limits chance of rogue use 
+	- Extracted current data from GSheet to CSV and stored in /data folder  
+	- Created KonaCaps.py to prototype looking up and adding values to data CSV file
+	- Created initial version of this POA file
+
+	
+> In-Progress: 
+
+
+> Next: 
+	- Store data (KonaCaps.csv) in S3 and access it from KonaCaps.py 
+
+

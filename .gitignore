@@ -1,5 +1,8 @@
 # AWS config info 
-AWSSecret.config
+AWSSecrets.txt
+
+# Mac stuff 
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

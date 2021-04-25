@@ -13,14 +13,15 @@ def lambda_handler(event, context):
 		
 		if (aKey == "queryStringParameters"): 
 			print(event["queryStringParameters"])
-			qsParams = event["queryStringParameters"]
-			englishValue = qsParams["eParam"]
-			hawaiiValue = qsParams["hParam"]
+
+	qsParams = event["queryStringParameters"]
+	englishValue = qsParams["eParam"]
+	hawaiiValue = qsParams["hParam"]
 
 	print("Got params %s and %s " % (englishValue, hawaiiValue))
 
 	# Test lookup 
-	datLines = ["papa'a la,sunburned",
+	dataLines = ["papa'a la,sunburned",
 				"slippahs,flip flops",
 				"aka'a ka,to laugh",
 				"shoots den,later then",

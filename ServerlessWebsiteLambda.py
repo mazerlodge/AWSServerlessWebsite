@@ -18,13 +18,35 @@ def lambda_handler(event, context):
 			hawaiiValue = qsParams["hParam"]
 
 	print("Got params %s and %s " % (englishValue, hawaiiValue))
+
+	# Test lookup 
+	datLines = ["papa'a la,sunburned",
+				"slippahs,flip flops",
+				"aka'a ka,to laugh",
+				"shoots den,later then",
+				"lilikoi,passionfruit"]
+	
+	bLineFound = False 
+	inLine = hawaiiValue + "," + englishValue
+	for aLine in dataLines: 
+		# parse line on comma, line looks like: papa'a la,sunburned
+		if (inLine == aLine.strip()): 
+			bLineFound = True
+			break 
+
+	# Compose response
+	if (bLineFound): 
+		msg = "exists," + inLine
+	else: 
+		msg = "to_be_added," + inLine
+
 	
 	resp = {
 		"statusCode": 200,
 		"headers": {
 			"Access-Control-Allow-Origin": "*",
 		},
-		"body": "RETURN_TEXT_GOES_HERE E~H " + englishValue + "~" + hawaiiValue 
+		"body": msg 
 	}
 
 	return resp
